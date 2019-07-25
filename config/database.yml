@@ -82,7 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: sweet_n_salty_backend_development
+  database: sweet_n_salty_backend_production
   username: sweet_n_salty_backend
   password: <%= ENV['SWEET_N_SALTY_BACKEND_DATABASE_PASSWORD'] %>
 #   database: sweet_n_salty_backend_production
