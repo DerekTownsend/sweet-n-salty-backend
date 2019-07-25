@@ -58,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: sweet-n-salty-backend
+  database: sweet_n_salty_backend_test
 #   database: sweet_n_salty_backend_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -82,7 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: sweet-n-salty-backend
+  database: sweet_n_salty_backend_development
   username: sweet_n_salty_backend
   password: <%= ENV['SWEET_N_SALTY_BACKEND_DATABASE_PASSWORD'] %>
 #   database: sweet_n_salty_backend_production
