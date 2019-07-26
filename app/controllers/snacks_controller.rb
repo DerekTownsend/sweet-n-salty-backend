@@ -8,6 +8,6 @@ class SnacksController < ApplicationController
   def show
     snack = Snack.find_by(id: params[:id])
     # SnackSerializer.new(snack).to_serialized_json
-    render json: snack
+    render json: SnackSerializer.new(snack).to_serialized_json
   end
 end
