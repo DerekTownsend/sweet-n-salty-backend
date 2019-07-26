@@ -62,6 +62,10 @@ snacks = [
 
   snacksObj.each do |snack|
     (1..6).to_a.sample.times do
-      Mix.create(snack: snack, ingredient: ingredientsObj.sample, amount: amounts.sample)
+      ingredient = ingredientsObj.sample
+      while snack.ingredients.include?(ingredient) do
+        ingredient = ingredientsObj.sample
+      end
+      Mix.create(snack: snack, ingredient: ingredient, amount: amounts.sample)
     end
   end

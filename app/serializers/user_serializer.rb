@@ -12,6 +12,15 @@ class UserSerializer < ActiveModel::Serializer
        {
         snacks:
           {
+            include:
+            {
+                mixes:
+                  {
+                    include: {
+                      ingredient: { except: %i[created_at updated_at]}
+                    }, except: %i[ ingredient_id snack_id created_at updated_at]
+                  }
+            },
             except: %i[created_at updated_at]
           }
         },

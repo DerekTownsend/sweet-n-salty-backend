@@ -2,7 +2,7 @@ class SnacksController < ApplicationController
   def index
     snacks = Snack.all
     # SnackSerializer.new(snacks).to_serialized_json
-    render json: snacks
+    render json: SnackSerializer.new(snacks).to_serialized_json
   end
 
   def show
