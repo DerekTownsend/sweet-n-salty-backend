@@ -1,4 +1,4 @@
-
+Mix.destroy_all
 Snack.destroy_all
 Ingredient.destroy_all
 User.destroy_all
