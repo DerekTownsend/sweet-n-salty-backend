@@ -1,4 +1,6 @@
 class SnacksController < ApplicationController
+  skip_before_action :authorized, only: [:index]
+
   def index
     snacks = Snack.all
     render json: SnackSerializer.new(snacks).to_serialized_json
