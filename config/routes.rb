@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :mixes
   resources :ingredients
   resources :snacks
-  resources :users, only: [:index, :show]
+  # resources :users, only: [:index, :show]
 
   namespace :api do
     namespace :v1 do

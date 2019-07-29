@@ -1,4 +1,6 @@
 class IngredientsController < ApplicationController
+  skip_before_action :authorized, only: [:index]
+
   def index
     ingredients = Ingredient.all
     # IngredientSerializer.new(ingredients).to_serialized_json
