@@ -32,6 +32,9 @@ class SnacksController < ApplicationController
   def update
     snack =  Snack.find_by(id: params[:id])
     snack.update_attributes(name: snack_params[:name], description: snack_params[:description], occasion: snack_params[:occasion])
+
+    snack.mixes.destroy_all
+
     ingredients = snack_params[:ingredients_attributes].collect do |ingredient|
       temp = Ingredient.find_by(name: ingredient[:name], type_of_ingredient: ingredient[:type_of_ingredient])
       if !temp
@@ -41,7 +44,10 @@ class SnacksController < ApplicationController
     end
 
     ingredients.each_with_index do |ingredient, index|
+      p "SNACK #{snack}"
+      p "ingredient #{ingredient}"
        temp = Mix.find_by(snack: snack, ingredient: ingredient, amount: snack_params[:mixes_attributes][index][:amount])
+       p "TEMP #{temp}"
        if !temp
          temp = Mix.create(snack: snack, ingredient: ingredient, amount: snack_params[:mixes_attributes][index][:amount])
        end
